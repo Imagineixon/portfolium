@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfólio - [Seu Nome]</title>
     <style>
+        :root {
+            --cor-primaria: #2A2A2A;
+            --cor-secundaria: #0077B6;
+            --cor-clara: #F8F9FA;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -12,91 +18,85 @@
             font-family: 'Segoe UI', sans-serif;
         }
 
-        :root {
-            --primary-color: #2A2A2A;
-            --secondary-color: #0077B6;
-            --light-color: #F8F9FA;
-        }
-
         body {
             line-height: 1.6;
-            color: var(--primary-color);
+            color: var(--cor-primaria);
         }
 
-        header {
-            background-color: var(--primary-color);
+        /* Header */
+        .cabecalho {
+            background-color: var(--cor-primaria);
             color: white;
-            padding: 2rem;
+            padding: 4rem 2rem;
             text-align: center;
         }
 
-        nav {
-            background-color: var(--secondary-color);
+        /* Navegação */
+        .navegacao {
+            background-color: var(--cor-secundaria);
             padding: 1rem;
+            position: sticky;
+            top: 0;
         }
 
-        nav ul {
+        .navegacao ul {
             display: flex;
             justify-content: center;
-            list-style: none;
             gap: 2rem;
+            list-style: none;
         }
 
-        nav a {
+        .navegacao a {
             color: white;
             text-decoration: none;
             font-weight: 500;
         }
 
-        section {
+        /* Seções */
+        .secao {
             padding: 4rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
         }
 
-        .projects-grid {
+        /* Projetos */
+        .grade-projetos {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
             margin-top: 2rem;
         }
 
-        .project-card {
+        .cartao-projeto {
             border: 1px solid #ddd;
-            padding: 1.5rem;
             border-radius: 8px;
+            padding: 1.5rem;
             transition: transform 0.3s;
         }
 
-        .project-card:hover {
+        .cartao-projeto:hover {
             transform: translateY(-5px);
         }
 
-        .skills-container {
+        /* Habilidades */
+        .habilidades {
             display: flex;
             flex-wrap: wrap;
             gap: 1rem;
             margin-top: 2rem;
         }
 
-        .skill {
-            background-color: var(--secondary-color);
+        .tag-habilidade {
+            background-color: var(--cor-secundaria);
             color: white;
-            padding: 0.5rem 1rem;
+            padding: 0.5rem 1.2rem;
             border-radius: 20px;
             font-size: 0.9rem;
         }
 
-        footer {
-            background-color: var(--primary-color);
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
-        }
-
+        /* Responsivo */
         @media (max-width: 768px) {
-            nav ul {
+            .navegacao ul {
                 flex-direction: column;
                 text-align: center;
                 gap: 1rem;
@@ -105,12 +105,12 @@
     </style>
 </head>
 <body>
-    <header>
+    <header class="cabecalho">
         <h1>[Seu Nome]</h1>
         <p>Estudante de Sistemas de Informação</p>
     </header>
 
-    <nav>
+    <nav class="navegacao">
         <ul>
             <li><a href="#sobre">Sobre</a></li>
             <li><a href="#projetos">Projetos</a></li>
@@ -119,46 +119,47 @@
         </ul>
     </nav>
 
-    <section id="sobre">
-        <h2>Sobre Mim</h2>
-        <p>Estudante de Sistemas de Informação na [Nome da Instituição] com interesse em [áreas de interesse]. Buscando oportunidade para aplicar conhecimentos em desenvolvimento de software e soluções tecnológicas.</p>
-    </section>
+    <main>
+        <section class="secao" id="sobre">
+            <h2>Sobre Mim</h2>
+            <p>Estudante de Sistemas de Informação com foco em desenvolvimento web e soluções tecnológicas. Apaixonado por resolver problemas através da programação.</p>
+        </section>
 
-    <section id="projetos">
-        <h2>Projetos Recentes</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <h3>Sistema de Gestão Acadêmica</h3>
-                <p>Desenvolvimento de um sistema web para gestão de alunos usando Python e Django</p>
+        <section class="secao" id="projetos">
+            <h2>Projetos Acadêmicos</h2>
+            <div class="grade-projetos">
+                <article class="cartao-projeto">
+                    <h3>Sistema de Biblioteca</h3>
+                    <p>Desenvolvimento de um CRUD em Java para gestão de acervo</p>
+                </article>
+                <article class="cartao-projeto">
+                    <h3>E-commerce</h3>
+                    <p>Protótipo de loja virtual usando HTML/CSS e JavaScript</p>
+                </article>
             </div>
-            <div class="project-card">
-                <h3>Aplicativo Mobile</h3>
-                <p>Protótipo de aplicativo para gestão de tarefas desenvolvido em React Native</p>
+        </section>
+
+        <section class="secao" id="habilidades">
+            <h2>Habilidades</h2>
+            <div class="habilidades">
+                <span class="tag-habilidade">HTML5</span>
+                <span class="tag-habilidade">CSS3</span>
+                <span class="tag-habilidade">Java</span>
+                <span class="tag-habilidade">MySQL</span>
+                <span class="tag-habilidade">Git</span>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="habilidades">
-        <h2>Habilidades Técnicas</h2>
-        <div class="skills-container">
-            <span class="skill">HTML5</span>
-            <span class="skill">CSS3</span>
-            <span class="skill">JavaScript</span>
-            <span class="skill">Python</span>
-            <span class="skill">SQL</span>
-            <span class="skill">Git</span>
-        </div>
-    </section>
+        <section class="secao" id="contato">
+            <h2>Contato</h2>
+            <p>📧 email@exemplo.com<br>
+               🔗 linkedin.com/in/seu-perfil<br>
+               💻 github.com/seu-usuario</p>
+        </section>
+    </main>
 
-    <section id="contato">
-        <h2>Contato</h2>
-        <p>Email: seuemail@dominio.com<br>
-        LinkedIn: linkedin.com/in/seu-perfil<br>
-        GitHub: github.com/seu-usuario</p>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 [Seu Nome]. Todos os direitos reservados.</p>
+    <footer class="rodape">
+        <p>© 2024 [Seu Nome]. Todos os direitos reservados.</p>
     </footer>
 </body>
 </html>
